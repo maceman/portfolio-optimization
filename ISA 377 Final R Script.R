@@ -532,6 +532,8 @@ XLU_oct <- rbind(XLU_oct,"2016-10-31" = c(48.84828,48.15433))
 
 ##################
 #CREATE CALCULATIONS FOR RETURNS
+
+# August
 roww_aug <- 171
 for (i in 1:(roww_aug)) {
   XLB_aug$Return[i] <- ((XLB_aug[i,1]-XLB_aug[i,2])/XLB_aug[i,2])
@@ -552,7 +554,7 @@ for (i in 1:(roww_aug)) {
   XLU_aug$Return[i] <- ((XLU_aug[i,1]-XLU_aug[i,2])/XLU_aug[i,2])
 }
 
-###
+# September
 roww_sept <- 172
 for (i in 1:(roww_sept)) {
   XLB_sept$Return[i] <- ((XLB_sept[i,1]-XLB_sept[i,2])/XLB_sept[i,2])
@@ -573,7 +575,7 @@ for (i in 1:(roww_sept)) {
   XLU_sept$Return[i] <- ((XLU_sept[i,1]-XLU_sept[i,2])/XLU_sept[i,2])
 }
 
-###
+# October
 roww_oct <- 173
 for (i in 1:(roww_oct)) {
   XLB_oct$Return[i] <- ((XLB_oct[i,1]-XLB_oct[i,2])/XLB_oct[i,2])
@@ -595,7 +597,7 @@ for (i in 1:(roww_oct)) {
 }
 
 
-##
+# Returns for August
 cov_return_aug <- as.data.frame(cbind(XLB_aug$Return,
                                   XLE_aug$Return,
                                   XLF_aug$Return,
@@ -609,7 +611,7 @@ colnames(cov_return_aug) <- c("XLB_aug Return",
                           "XLP_aug Return",
                           "XLU_aug Return")
 
-##
+# Returns for September
 cov_return_sept <- as.data.frame(cbind(XLB_sept$Return,
                                    XLE_sept$Return,
                                    XLF_sept$Return,
@@ -623,7 +625,7 @@ colnames(cov_return_sept) <- c("XLB_sept Return",
                            "XLP_sept Return",
                            "XLU_sept Return")
 
-##
+# Returns for October
 cov_return_oct <- as.data.frame(cbind(XLB_oct$Return,
                                    XLE_oct$Return,
                                    XLF_oct$Return,
@@ -637,7 +639,7 @@ colnames(cov_return_oct) <- c("XLB_oct Return",
                            "XLP_oct Return",
                            "XLU_oct Return")
 
-# covariance matrices
+# Covariance Matrices
 c_aug <- as.data.frame(cov(cov_return_aug))
 c_sept <- as.data.frame(cov(cov_return_sept))
 c_oct <- as.data.frame(cov(cov_return_oct))
