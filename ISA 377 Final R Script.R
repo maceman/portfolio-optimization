@@ -89,7 +89,6 @@ XLP<-apply.monthly(XLP,tail,1)
 #################
 
 
-
 #APPLY DATE PARAMETERS TO ALL COLLECTED VARIABLES
 CPIAUCSL<- CPIAUCSL[paste0(from.dat,"/",to.dat)]
 INDPRO<- INDPRO[paste0(from.dat,"/",to.dat)]
@@ -223,6 +222,7 @@ TCDSL$TCDSL=NULL
 
 ######################
 
+
 #TAKE OFF FIRST OBSERVATION, BECAUSE IT IS BLANK FOR MOST VARIABLES NOW
 CSUSHPINSA<-CSUSHPINSA[-1,]
 CPIAUCSL<-CPIAUCSL[-1,]
@@ -273,6 +273,7 @@ XLB<-XLB[-1,]
 XLP<-XLP[-1,]
 
 ##################
+
 
 #CHANGE XTS OBJECTS TO DATA FRAMES
 CSUSHPINSA<-as.data.frame(CSUSHPINSA)
@@ -447,6 +448,7 @@ library("TTR")
 
 ######################
 
+
 # COMBINE DATA SETS
 cov_adj <- as.ts(cbind(XLB$XLB.Adjusted,
                        XLE$XLE.Adjusted,
@@ -484,7 +486,6 @@ plot(aug_pred)
 plot(sept_pred)
 plot(oct_pred)
 
-
 #CREATE DATA FRAMES INCLUDING THE MONTHS UP UNTIL DESIGNATED MONTH
 XLB_aug = as.data.frame(XLB[1:171,])
 XLE_aug = as.data.frame(XLE[1:171,])
@@ -506,7 +507,6 @@ XLF_oct = as.data.frame(XLF)
 XLI_oct = as.data.frame(XLI)
 XLP_oct = as.data.frame(XLP)
 XLU_oct = as.data.frame(XLU)
-
 
 XLB_aug <- rbind(XLB_aug,"2016-08-31" = c(45.65626,47.97155))
 XLE_aug <- rbind(XLE_aug,"2016-08-31" = c(67.0708,66.22571))
@@ -531,6 +531,7 @@ XLU_oct <- rbind(XLU_oct,"2016-10-31" = c(48.84828,48.15433))
 
 
 ##################
+
 #CREATE CALCULATIONS FOR RETURNS
 
 # August
@@ -595,7 +596,6 @@ for (i in 1:(roww_oct)) {
 for (i in 1:(roww_oct)) {
   XLU_oct$Return[i] <- ((XLU_oct[i,1]-XLU_oct[i,2])/XLU_oct[i,2])
 }
-
 
 # Returns for August
 cov_return_aug <- as.data.frame(cbind(XLB_aug$Return,
